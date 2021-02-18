@@ -1,9 +1,11 @@
 import React from 'react';
 import GithubCard from "./GithubCard";
-class ProjectList extends React.Component {
+class GithubCardList extends React.Component {
+
   render() {
-    return <div><GithubCard /></div>
+    const repoList = this.props.repos.map(repo => <GithubCard key={repo.id} repo={repo} />);
+    return <div className="grid grid-cols-3 gap-4">{repoList}</div>
   }
 }
 
-export default  ProjectList;
+export default  GithubCardList;
