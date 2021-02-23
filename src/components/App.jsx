@@ -1,25 +1,21 @@
 import React from 'react';
 import GithubCardList from './GithubCardList';
-import Search from './Search'
 import Github from '../api/Github';
 class App extends React.Component {
-  state = { repos: []};E
+  state = { repos: [] };
+  E;
   componentDidMount = async () => {
     const response = await Github.get('/users/JGustafsonIII/repos', {
       headers: {
-        Accept: "application/vnd.github.inertia-preview+json",
+        Accept: 'application/vnd.github.inertia-preview+json',
       },
-
     });
-    this.setState({repos: response.data})
-  }
-  onSearch = (term) => {
-
-  }
+    this.setState({ repos: response.data });
+  };
+  onSearch = (term) => {};
   render() {
     return (
-      <div className="App container mx-auto">
-        <Search />
+      <div className='App container mx-auto'>
         <GithubCardList repos={this.state.repos} />
       </div>
     );
